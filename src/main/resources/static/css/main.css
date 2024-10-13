@@ -6,3 +6,24 @@ button.buttonChangeColor:hover {
     color:  #FF4500;
     text-shadow: 0 0 1px  #FF4500;
 }
+a.buttonChangeColor:hover {
+    color:  #c1946a;
+    text-shadow: 0 0 1px  #c1946a;
+}
+#mapid {
+    width: 100%;
+    height: 100vh;
+}
+
+/*
+HEX: #b9936c
+HEX: #dac292
+HEX: #e6e2d3
+HEX: #c4b7a6
+HEX: #d5f4e6
+HEX: #80ced6
+HEX: #fefbd8
+HEX: #618685
+HEX: #c1946a
+HEX: #3e4444
+*/

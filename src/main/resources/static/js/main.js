@@ -47,3 +47,9 @@ function change_fon() {
         opacity = 1;
     }, 1000);
 }
+
+let map_view;
+function on_init() {
+    map_view = new MapView('mapid');
+}
+let map = document.getElementById('mapid');

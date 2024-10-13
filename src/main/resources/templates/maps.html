@@ -5,18 +5,33 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="lib/bootstrap-5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="lib/bootstrap-5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../lib/leaflet1/dist/leaflet.css"/>
+    <script src="../lib/leaflet1/dist/leaflet.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
+    <script src="js/MapView.js"></script>
 </head>
 <body>
 <div th:insert="fragments.html :: header"></div>
+
 
 <div class="container fs-3" style="margin-top: 20px;">
     <div class="row" style="width: 120%; margin-left: -10%;
     line-height: 200%; vertical-align: center;">
         <p>Ознакомиться с нашей продукцией вы можете в фирменных шоурумах SweetSoap</p>
+        <div class="container" style="position: relative;">
+            <div style="position: relative">
+                <div id="mapid" style="position: absolute; z-index: 100; "></div>
+            </div>
+        </div>
     </div>
 </div>
+
+<script>
+    on_init();
+</script>
 
 </body>
 </html>

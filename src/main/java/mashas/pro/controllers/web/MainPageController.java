@@ -20,4 +20,9 @@ public class MainPageController {
         return "greeting";
     }
 
+    @GetMapping("/maps")
+    public String maps() {
+        return "maps";
+    }
+
 }

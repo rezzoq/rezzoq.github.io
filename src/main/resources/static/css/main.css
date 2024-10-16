@@ -15,12 +15,39 @@ a.buttonChangeColor:hover {
     height: 100vh;
 }
 map_shop_img {
-
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
 }
 map_shop_title {
 
 }
+.leaflet-popup-content-wrapper {
+    width:115px;
+    background-color: #ffffff;
+}
 
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    width:95px;
+    background-color: #ffffff;
+}
+
+.leaflet-popup-tip-container {
+
+}
+
+.leaflet-popup-content {
+    margin-left: 10px;
+    margin-right: 2px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    /*Размер текста*/
+    font-weight: bold;
+    font-size: 11px;
+    opacity: 100%;
+    color: #100e0e;
+    width:120px;
+}
 /*
 HEX: #b9936c
 HEX: #dac292

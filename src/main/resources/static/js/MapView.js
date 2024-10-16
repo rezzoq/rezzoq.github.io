@@ -22,15 +22,36 @@ class MapView {
             });
         L.featureGroup().addTo(this._map_view);
         this._source_map_cartoon_light.addTo(this._map_view);
+        this.get_marker_shop(55.779119, 37.616451,
+            "../img/map/photo_shop_map_1.png", "Улица").addTo(this._map_view);
+
     }
     /*===================================================================================================*/
-    /*                                            Источник тайлов                                       */
+    /*                                            Источник тайлов                                        */
     /*===================================================================================================*/
-    _source_map_cartoon_light = // №5 Источник тайлов карты - Cartodb Basemaps, карты типа чб схема
+    _source_map_cartoon_light = // Источник тайлов карты - Cartodb Basemaps, карты типа чб схема
         L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             maxZoom: this._zoom_max,
             minZoom: this._zoom_min,
             subdomains: 'abcd'
         });
+    /*===================================================================================================*/
+    /*                                     Добавление лейблов на карту                                   */
+    /*===================================================================================================*/
+    get_marker_shop (lat, lon, img_src, address) {
+        let marker_shop = new L.Marker([lat, lon], {
+            icon: new L.Icon({
+                iconSize:     [60, 60],
+                iconAnchor:   [30, 60],
+                popupAnchor:  [0, -55],
+                className: 'my-div-icon',
+                iconUrl: '../img/map/lable_shop_map.png'
+            })
+        });
+        marker_shop.bindPopup(new L.popup().setContent(
+            '<img class="map_shop_img" src="' + img_src + '" alt=""/>'+
+        '<span class="map_shop_title">' + address + '</span>'));
+        return marker_shop;
+    }
 }
 

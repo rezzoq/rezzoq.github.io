@@ -25,7 +25,7 @@ class MapView {
         this._source_map_cartoon_light.addTo(this._map_view);
         this.get_marker_shop(55.779119, 37.616451,
             "../img/map/photo_shop_map_1.png", "улица Фонарная, 1").addTo(this._map_view);
-        this.get_marker_shop(55.641251, 37.635287,
+        this.get_marker_shop(55.757595, 37.610840,
             "../img/map/photo_shop_map_2.png", "улица Ноября, 14").addTo(this._map_view);
         this.get_marker_shop(55.742098, 37.5471497,
             "../img/map/photo_shop_map_3.png", "улица Русаковского, 53").addTo(this._map_view);

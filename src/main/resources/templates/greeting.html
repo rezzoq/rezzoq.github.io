@@ -1,33 +1,57 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="ru">
 <head>
     <title>SweetSoap - лучший бренд мыла</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="lib/bootstrap-5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="lib/bootstrap-5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css"/>
     <script src="js/main.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div th:insert="fragments.html :: header"></div>
 
-<div class="container" style="position: relative;">
-    <div class="row">
-        <div style="position: relative">
-            <img style="position: absolute; margin: 0; padding:0; width: 120%; left: -10%;"
-                 id="img_soap" src="../img/soap_circles_many_colors.png">
-            <img style="position: absolute; margin: 0; padding:0; opacity: 0; width: 120%; left: -10%;"
-                 id="img_soap_front_change" src="../img/soap_circles_many_colors.png">
-        </div>
-        <div style="position: absolute; margin-top: 5%; left: 20%;">
-            <strong><span id="img_title" style="font-size: 32px; ">
+<div class="container fs-3">
+    <div class="row"
+         style="width: 120%; margin-left: -5%; line-height: 200%; vertical-align: center; margin-top: 40px;">
+        <div style="display: grid;">
+            <img style="grid-area: 1 / 1 / 5 / 5; margin-left: -5%; aspect-ratio: 6 / 3.3; width: 100%;"
+                 id="img_soap" src="../img/greeting/soap_circles_many_colors.png">
+            <img style="grid-area: 1 / 1 / 5 / 5; margin-left: -5%; aspect-ratio: 6 / 3.3; width: 100%; opacity: 0;"
+                 id="img_soap_front_change" src="../img/greeting/soap_circles_many_colors.png">
+
+            <span id="img_title" style="z-index: 6; font-size: 32px; font-weight: bold; grid-area: 2 / 2 / 2 / 2;">
+                <!--row-start / column-start / row-end / column-end-->
                 Красота и здоровье
-            </span></strong>
-            <br><br><br>
-            <span id="img_desc" style="font-size: 24px;">
+            </span>
+            <div style="border-radius: 3px; z-index: 5; background-color: white; opacity: 64%; grid-area: 2 / 1 / 4 / 5;"></div>
+            <span id="img_desc" style="z-index: 6; font-size: 24px; grid-area: 3 / 2 / 3 / 2;">
                 Подберем для Вас лучшие сочетания</span>
         </div>
     </div>
+
+    <div class="row"
+         style="width: 120%; margin-left: -5%; line-height: 200%; vertical-align: center; margin-top: 40px;">
+        <p style="font-size: 24px;">На каждый день</p>
+        <div class="container"
+             style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-left: -5%;">
+            <img style="aspect-ratio: 16 / 9; grid-area: 1 / 1 / 2 / 1; width: 100%; z-index: 5;"
+                 src="../img/soap_1.png">
+            <!--<a class="soap_title" style="grid-area: 1 / 1 / 2 / 1; z-index: 6;">
+                <p style="opacity: 0;">Мыло натуральное "Рассвет в лесу", 90 гр FAITALICA</p>
+            </a>-->
+
+            <img style="aspect-ratio: 16 / 9; grid-area: 1 / 2 / 2 / 2; width: 100%;"
+                 src="../img/soap_2.png">
+
+            <img style="aspect-ratio: 16 / 9; grid-area: 1 / 3 / 2 / 3; width: 100%;"
+                 src="../img/soap_3.png">
+        </div>
+    </div>
 </div>
+
 </body>
 </html>

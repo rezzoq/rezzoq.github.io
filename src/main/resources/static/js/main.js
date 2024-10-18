@@ -1,7 +1,7 @@
 let counter = 1;
-let img_name = ["../img/soap_circles_many_colors.png","../img/soap_many_colors.png",
-    "../img/stars_cute_soap.png", "../img/yellow_violet_soap.png",
-    "../img/yellow_brown_soap.png"];
+let img_name = ["../img/greeting/soap_circles_many_colors.png","../img/greeting/soap_many_colors.png",
+    "../img/greeting/stars_cute_soap.png", "../img/greeting/yellow_violet_soap.png",
+    "../img/greeting/yellow_brown_soap.png"];
 let text_all = ["Красота и здоровье",
     "SweetSoap - это про настроение",
     "Создайте уют дома",
@@ -48,7 +48,7 @@ function change_fon() {
     }, 1000);
 }
 
-let map_view;
+let map_view = null;
 function on_init() {
     map_view = new MapView('mapid');
 }

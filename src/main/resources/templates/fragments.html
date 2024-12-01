@@ -74,6 +74,20 @@
     function click_info() {
       const el = document.getElementById('info');
       el.scrollIntoView();}
+
+    document.getElementById('new_go').onclick = click_new;
+    function click_new() {
+      const el = document.getElementById('new');
+      const result = window.location.href;
+      if (!result.toString().includes("greeting")) {
+        window.open("http://localhost:8080/greeting", "_self");
+        setTimeout(() => {
+          el.scrollIntoView();
+          console.log("Delayed for 3 second.");
+        }, 5);
+      }
+      el.scrollIntoView();
+    }
   </script>
 </div>
 

@@ -7,6 +7,7 @@
     <script src="lib/bootstrap-5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/main.css"/>
     <script src="js/main.js"></script>
+    <script src="lib/code.jquery.com_jquery-3.6.0.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,41 +68,111 @@
             align-content: center;
             display: flex;
         }
+
+        .carousel  {
+            width: 100%;
+            margin-left: -5px;
+        }
+        .carousel-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-items {
+            width: 10000px;
+            position: relative;
+        }
+        .carousel-block {
+            font-weight: bold;
+            float: left;
+            width: 159px;
+            background-color: rgba(240,238,230,0.5);
+            margin-left: 10px;
+            padding: 10px 10px 10px 0;
+            justify-content: center;
+            text-align: center;
+            font-size: 17px;
+        }
+        .carousel-block:hover {
+            font-weight: bold;
+            float: left;
+            width: 159px;
+            background-color: rgba(240,238,230,1);
+            margin-left: 10px;
+            padding: 10px 10px 10px 0;
+            justify-content: center;
+            text-align: center;
+            font-size: 17px;
+            border: 3px #2e2401;
+            box-shadow: 0 0 10px #ccc;
+        }
     </style>
 </head>
 <body>
 <div th:insert="fragments.html :: header"></div>
 
 <script>
-    document.getElementById('new_go').onclick = click_new;
-    function click_new() {
-        const el = document.getElementById('new');
-        el.scrollIntoView();}
-
     document.getElementById('promotions_go').onclick = click_promotions;
     function click_promotions() {
         const el = document.getElementById('promotions');
         el.scrollIntoView();}
+
+
+
+
+    let duration = 2500
+    //Обработка клика на стрелку вправо
+    $(document).on('click', ".carousel-button-right",function(){
+        var carusel = $(this).parents('.carousel');
+        right_carusel(carusel);
+        return false;
+    });
+    //Обработка клика на стрелку влево
+    $(document).on('click',".carousel-button-left",function(){
+        var carusel = $(this).parents('.carousel');
+        left_carusel(carusel);
+        return false;
+    });
+    function left_carusel(carusel){
+        var block_width = $(carusel).find('.carousel-block').outerWidth();
+        $(carusel).find(".carousel-items .carousel-block").eq(-1).clone().prependTo($(carusel).find(".carousel-items"));
+        $(carusel).find(".carousel-items").css({"left":"-"+block_width+"px"});
+        $(carusel).find(".carousel-items .carousel-block").eq(-1).remove();
+        $(carusel).find(".carousel-items").animate({left: "0px"});
+
+    }
+    function right_carusel(carusel){
+        var block_width = $(carusel).find('.carousel-block').outerWidth();
+        $(carusel).find(".carousel-items").animate({left: "-"+ block_width +"px"}, duration, 'linear', function(){
+            $(carusel).find(".carousel-items .carousel-block").eq(0).clone().appendTo($(carusel).find(".carousel-items"));
+            $(carusel).find(".carousel-items .carousel-block").eq(0).remove();
+            $(carusel).find(".carousel-items").css({"left":"0px"});
+        });
+    }
+    $(function() {
+        auto_right('.carousel:first');
+    })
+    function auto_right(carusel,handler){
+        setInterval(function(){
+            if (!$(carusel).is('.hover'))
+                right_carusel(carusel);
+        }, duration)
+    }
+    $(document).on('mouseenter', '.carousel', function(){
+        $('.carousel').find(".carousel-items").stop()
+        $(this).addClass('hover')
+    })
+    $(document).on('mouseleave', '.carousel', function(){$(this).removeClass('hover')})
+
+    $(document).on('mouseenter', '.carousel', function(){
+        $('.carousel').find(".carousel-items").stop()
+        $(this).addClass('hover')}
+    )
+
+
+
 </script>
 
 <div class="container fs-3">
-<!--    <div class="row"
-         style="width: 120%; margin-left: -5%; line-height: 200%; vertical-align: center; margin-top: 40px;">
-        <div style="display: grid;">
-            <img style="grid-area: 1 / 1 / 5 / 5; margin-left: -5%; aspect-ratio: 6 / 3.3; width: 100%;"
-                 id="img_soap" src="../img/greeting/soap_circles_many_colors.png">
-            <img style="grid-area: 1 / 1 / 5 / 5; margin-left: -5%; aspect-ratio: 6 / 3.3; width: 100%; opacity: 0;"
-                 id="img_soap_front_change" src="../img/greeting/soap_circles_many_colors.png">
-
-            <span id="img_title" style="z-index: 6; font-size: 32px; font-weight: bold; grid-area: 2 / 2 / 2 / 2;">
-                &lt;!&ndash;row-start / column-start / row-end / column-end&ndash;&gt;
-                Красота и здоровье
-            </span>
-            <div style="border-radius: 3px; z-index: 5; background-color: white; opacity: 64%; grid-area: 2 / 1 / 4 / 5;"></div>
-            <span id="img_desc" style="z-index: 6; font-size: 24px; grid-area: 3 / 2 / 3 / 2;">
-                Подберем для Вас лучшие сочетания</span>
-        </div>
-    </div>-->
     <div class="row"
          style="width: 110%; margin-left: 0; line-height: 200%; vertical-align: center; margin-top: 40px;">
         <div style="display: grid;">
@@ -180,9 +251,35 @@
 
     <div class="row" style="margin-left: -10%; width: 120%; margin-top: 60px;"> <hr></div>
 
-    <div class="row"
-         style="width: 120%; margin-left: -5%; vertical-align: center; margin-top: 60px;">
-        
+    <div class="carousel" style="margin-top: 60px;">
+        <div class="carousel-wrapper">
+            <div class="carousel-items">
+                <div class="carousel-block">
+                    Ozon
+                </div>
+                <div class="carousel-block">
+                    Gold Birn
+                </div>
+                <div class="carousel-block">
+                    Mint Factory
+                </div>
+                <div class="carousel-block">
+                    1TEK
+                </div>
+                <div class="carousel-block">
+                    SoaSoap
+                </div>
+                <div class="carousel-block">
+                    fresteca
+                </div>
+                <div class="carousel-block">
+                    menzi
+                </div>
+                <div class="carousel-block">
+                    JMDOM
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row" style="margin-left: -10%; width: 120%; margin-top: 60px;"> <hr></div>

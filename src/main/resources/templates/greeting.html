@@ -111,14 +111,6 @@
 <div th:insert="fragments.html :: header"></div>
 
 <script>
-    document.getElementById('promotions_go').onclick = click_promotions;
-    function click_promotions() {
-        const el = document.getElementById('promotions');
-        el.scrollIntoView();}
-
-
-
-
     let duration = 2500
     //Обработка клика на стрелку вправо
     $(document).on('click', ".carousel-button-right",function(){
@@ -251,36 +243,12 @@
 
     <div class="row" style="margin-left: -10%; width: 120%; margin-top: 60px;"> <hr></div>
 
-    <div class="carousel" style="margin-top: 60px;">
-        <div class="carousel-wrapper">
-            <div class="carousel-items">
-                <div class="carousel-block">
-                    Ozon
-                </div>
-                <div class="carousel-block">
-                    Gold Birn
-                </div>
-                <div class="carousel-block">
-                    Mint Factory
-                </div>
-                <div class="carousel-block">
-                    1TEK
-                </div>
-                <div class="carousel-block">
-                    SoaSoap
-                </div>
-                <div class="carousel-block">
-                    fresteca
-                </div>
-                <div class="carousel-block">
-                    menzi
-                </div>
-                <div class="carousel-block">
-                    JMDOM
-                </div>
-            </div>
-        </div>
+    <div class="row"
+         style="width: 120%; margin-left: -5%; vertical-align: center; margin-top: 60px;">
+        <p id="brands" style="font-size: 24px; font-weight: bold;">Бренды</p>
     </div>
+
+    <div th:insert="fragments.html :: carousel"></div>
 
     <div class="row" style="margin-left: -10%; width: 120%; margin-top: 60px;"> <hr></div>
 
